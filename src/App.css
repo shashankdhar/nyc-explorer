@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.inner-container-child {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.inner-container-child .card {
+   flex-grow: 1;
+}
+
+.inner-container:nth-child(1) {
+  height: 25%;
+}
+
+.inner-container:nth-child(2) {
+  height: 75%;
+}
+
+.inner-container > div,
+.inner-container-child > div {
+  /*font-size: 2vw;*/
+  padding: 0.5em;
+  color: white;
+  margin: 10px;
+  box-shadow: 3px 3px 8px hsl(0, 0%, 67%);
+  /*border-radius: 3px;
+          border: 2px solid black;*/
+}
+
+.container > .inner-container:nth-child(1) > div:nth-child(1) {
+  width: 40%;
+}
+
+.container > .inner-container:nth-child(1) > div:nth-child(2),
+.container > .inner-container:nth-child(1) > div:nth-child(3) {
+  width: 25%;
+}
+
+.container > .inner-container:nth-child(2) > div:nth-child(1) {
+  width: 50%;
+}
+
+.container > .inner-container:nth-child(2) > div:nth-child(2) {
+  width: 42%;
+}
+
+.card {
+  background: white;
+  margin-bottom: 2em;
+}
+
+.card-content {
+  color: black;
+  text-decoration: none;
+}
+
+.card-content h1,
+.card-content h2,
+.card-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.card-content p {
+  font-size: 80%;
+  margin: 0.5em 0;
+}
+
+.card-content .list-place {
+  overflow: auto;
+  max-height: 27vw;
+}
