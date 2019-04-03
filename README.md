@@ -7,7 +7,7 @@
 
 ### Run server
 
-## For environments using Node ,the easiest way to run a static would be to use "serve"!
+### For environments using Node ,the easiest way to run a static would be to use "serve"!
 
 ## If you dont have have serve installed, run the command below
 npm install -g serve
