@@ -127,6 +127,7 @@ export default class ZipDetails extends React.Component {
 			.then(res => res.json())
 			.then(
 				result => {
+					console.log(result);
 					this.setState({
 						isWeatherLoaded: true,
 						data_weather: result
@@ -156,30 +157,38 @@ export default class ZipDetails extends React.Component {
 					<div className="card">
 						<div className="card-content">
 							<h2>Census information</h2>
-							<h4>
+							<h3>
 								Population -{" "}
 								{this.props.location.state.population}
-							</h4>
+							</h3>
 						</div>
 					</div>
 					<div className="card">
 						<div className="card-content">
 							<h2>Weather</h2>
 							{this.state.isWeatherLoaded && (
-								<p>
-									{" "}
+								<strong className="card-content-weather-info">
+									{" Forecast: "}
 									{
 										this.state.data_weather.weather[0]
+											.main
+									}{" "}
+									({
+										this.state.data_weather.weather[0]
 											.description
-									}
-									, Humidity -{" "}
-									{this.state.data_weather.main.humidity}{" "}
-								</p>
+									})
+								</strong>								
 							)}
 							{this.state.isWeatherLoaded && (
-								<strong>
-									{" "}
-									{(this.state.data_weather.main.temp -
+								<strong className="card-content-weather-info">
+									Humidity -{" "}
+									{this.state.data_weather.main.humidity}{" "}
+								</strong>								
+							)}
+							{this.state.isWeatherLoaded && (
+								<strong className="card-content-weather-info">
+									{" Temp "}
+									{ Math.round(this.state.data_weather.main.temp -
 										273.15) *
 										1.8 +
 										32}{" "}

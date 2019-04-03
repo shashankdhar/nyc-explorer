@@ -24,6 +24,7 @@
 
 .inner-container:nth-child(1) {
   height: 25%;
+  background-color: #007489;
 }
 
 .inner-container:nth-child(2) {
@@ -135,6 +136,10 @@
 
 .card-content .list-traffic {
   max-height: 200px;
+}
+
+.card-content .card-content-weather-info {
+  display: block;
 }
 
 .card-content .card-content-dropdown {
