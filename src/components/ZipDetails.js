@@ -205,8 +205,8 @@ export default class ZipDetails extends React.Component {
 								{this.state.data_places.length > 0 &&
 									this.state.data_places.map(place => (
 										<li key={place.id}>
-										    { place.image_url && <img className="img-location" src={place.image_url} />}
-										    { !place.image_url && <img className="img-location" src={imglocation} />}
+										    { place.image_url && <img className="img-location" alt={place.name} src={place.image_url} />}
+										    { !place.image_url && <img className="img-location" alt={place.name} src={imglocation} />}
 										    <span className="card-content-place-name">{place.name}</span>
 										    <span className="card-content-place-rating">Rating {place.rating}</span>
 										</li>
