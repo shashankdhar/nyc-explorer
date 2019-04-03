@@ -28,11 +28,14 @@ export default class ChoroplethMap extends React.Component {
     const gPath = geoPath().projection(gprojection);
 
     return (
-      <svg width={width} height={height}>
-        {zipunits.features.map((d, i) => (
-          <MapPath key={i} data={d} path={gPath(d)} color={color(i)} />
-        ))}
-      </svg>
+      <div className="main-wrapper">
+          <svg width={width} height={height}>
+            {zipunits.features.map((d, i) => (
+              <MapPath key={i} data={d} path={gPath(d)} color={color(i)} />
+            ))}
+          </svg>
+          <h1 className="heading-map">State of New York</h1>
+      </div>     
     );
   }
 }
