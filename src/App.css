@@ -19,7 +19,7 @@
 }
 
 .inner-container-child .card {
-   flex-grow: 1;
+  flex-grow: 1;
 }
 
 .inner-container:nth-child(1) {
@@ -81,7 +81,63 @@
   margin: 0.5em 0;
 }
 
-.card-content .list-place {
+.card-content ul {
   overflow: auto;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+  display: flex;
+  /*flex-wrap: wrap;*/
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.card-content li {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  /* width: 100%; */
+  align-items: center;
+  height: 50px;
+  box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
+  color: #242c33;
+  /* overflow: hidden; */
+  /* border: 1px solid #d6d5d5; */
+  padding: 5px 5px 25px 15px;
+}
+
+.card-content .img-location {
+  height: 50px;
+}
+
+.card-content .img-location:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-image: url("location.png");
+  object-fit: contain;
+}
+
+.card-content-place-name {
+  margin-left: 10px;
+}
+
+.card-content .list-place {
   max-height: 27vw;
+}
+
+.card-content .list-traffic {
+  max-height: 200px;
+}
+
+.card-content .card-content-dropdown {
+  display: inline-block;
+  width: 220px;
 }

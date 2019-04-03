@@ -1,8 +1,8 @@
 import React from "react";
 import "../App.css";
 import * as AppConstants from "../constants";
-
-import { ReactBingmaps } from 'react-bingmaps';
+import Select from 'react-select';
+import imglocation from "../location.png";
 
 export default class ZipDetails extends React.Component {
 	constructor(props) {
@@ -10,7 +10,8 @@ export default class ZipDetails extends React.Component {
 
 		this.boundary = { north: null, south: null, east: null, west: null }
 
-		this.state = {			
+		this.state = {
+			selectedPlaceOption: AppConstants.CATEGORIES_PLACES[0],	
 			data_weather: {},
 			isWeatherLoaded: false,
 			isWeatherError: false,
@@ -25,7 +26,8 @@ export default class ZipDetails extends React.Component {
 
 	componentDidMount() {
 		this.getWeather();
-		this.getPlaces();
+		/* select the first category */
+		this.getPlaces(this.state.selectedPlaceOption);
 		this.getTrafficIncidents();
 		this.getCrimeData();
 	}
@@ -61,8 +63,6 @@ export default class ZipDetails extends React.Component {
 		const long_west = Math.min(...longs);
 		const long_east = Math.max(...longs);
 		this.boundary = { north: lat_north, south: lat_south, east: long_east, west: long_west };
-		console.log(lat_north);
-		console.log(this.boundary);
 		const url_traffic =	AppConstants.URL_TRAFFIC + lat_south + "," + long_west + "," + lat_north + "," + long_east + "?key=" + AppConstants.TRAFFIC_API_KEY;
 		fetch(url_traffic)
 			.then(res => res.json())
@@ -80,9 +80,14 @@ export default class ZipDetails extends React.Component {
 			);
 	}
 
-	getPlaces() {
+	handleChangePlace = (selectedPlaceOption) => {
+		console.log(selectedPlaceOption);
+		this.setState({ selectedPlaceOption });
+		this.getPlaces(selectedPlaceOption.value);
+	}
+
+	getPlaces(categories) {
 		const cors_api_url = `https://cors-anywhere.herokuapp.com/`;
-		const categories = AppConstants.KEYWORDS_HEALTH;
 		const url_places =
 			cors_api_url +
 			AppConstants.URL_PLACES +
@@ -187,12 +192,13 @@ export default class ZipDetails extends React.Component {
 				<div className="inner-container">
 					<div className="card">
 						<div className="card-content">
-							<h2>Nearby Places</h2>
+							<h2>Nearby Places <Select className="card-content-dropdown" value={this.state.selectedPlaceOption} onChange={this.handleChangePlace} options={ AppConstants.CATEGORIES_PLACES } /></h2>
 							<ul className="card list-place">
 								{this.state.data_places.length > 0 &&
 									this.state.data_places.map(place => (
 										<li key={place.id}>
-											<span>{place.name}</span>
+										    <img className="img-location" src={imglocation} alt="example" />
+										    <span className="card-content-place-name">{place.name}</span>
 										</li>
 									))}
 							</ul>
@@ -201,8 +207,8 @@ export default class ZipDetails extends React.Component {
 					<div className="inner-container-child">
 						<div className="card">
 							<div className="card-content">
-								<h2>Traffic Incidents</h2>
-								<ul className="card">
+								<h2>Traffic Incidents { this.state.data_incidents_traffic.length && ("(" + this.state.data_incidents_traffic.length + ")") }</h2>
+								<ul className="card list-traffic">
 									{this.state.data_incidents_traffic.length > 0 &&
 										this.state.data_incidents_traffic.map(incidents => (
 											<li key={incidents.incidentId}>
