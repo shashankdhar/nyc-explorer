@@ -5,9 +5,9 @@
 1. Download/clone the repo
 2. Run the command `npm run build`
 
-### 'Run server'
+### Run server
 
-## For environments using Node ,the easiest way to run a static would be to use `server`!
+## For environments using Node ,the easiest way to run a static would be to use "serve"!
 
 ## If you dont have have serve installed, run the command below
 npm install -g serve
