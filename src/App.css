@@ -114,20 +114,17 @@
 
 .card-content .img-location {
   height: 50px;
+  width: 50px;
 }
 
-.card-content .img-location:before {
-  content: " ";
-  display: block;
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  background-image: url("location.png");
-  object-fit: contain;
-}
+
 
 .card-content-place-name {
   margin-left: 10px;
+}
+
+.card-content-place-rating {
+  margin-left: auto;
 }
 
 .card-content .list-place {

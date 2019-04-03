@@ -127,7 +127,6 @@ export default class ZipDetails extends React.Component {
 			.then(res => res.json())
 			.then(
 				result => {
-					console.log(result);
 					this.setState({
 						isWeatherLoaded: true,
 						data_weather: result
@@ -206,8 +205,10 @@ export default class ZipDetails extends React.Component {
 								{this.state.data_places.length > 0 &&
 									this.state.data_places.map(place => (
 										<li key={place.id}>
-										    <img className="img-location" src={imglocation} alt="example" />
+										    { place.image_url && <img className="img-location" src={place.image_url} />}
+										    { !place.image_url && <img className="img-location" src={imglocation} />}
 										    <span className="card-content-place-name">{place.name}</span>
+										    <span className="card-content-place-rating">Rating {place.rating}</span>
 										</li>
 									))}
 							</ul>
@@ -228,7 +229,7 @@ export default class ZipDetails extends React.Component {
 							</div>							
 						</div>
 						<div className="card">
-							<h2>Crime Rates, Property Rates</h2>
+							<h2>Crime Report</h2>
 							<div className="card-content">
 								<span>Number of Felonies Reported - { this.state.data_crime_number }</span>
 							</div>
