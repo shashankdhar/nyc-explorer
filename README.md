@@ -1,5 +1,19 @@
 
 
-### `npm run build`
+### Steps to run the app (assuming node is installed)
 
-Run the above command app using the above
+1. Download/clone the repo
+2. Run the command `npm run build`
+
+### 'Run server'
+
+## For environments using Node ,the easiest way to run a static would be to use `server`!
+
+## If you dont have have serve installed, run the command below
+npm install -g serve
+
+Run the command below in main directory
+
+serve -s build
+
+To access the url go to http://localhost:5000 on your machine.
