@@ -34,7 +34,7 @@ export default class ChoroplethMap extends React.Component {
               <MapPath key={i} data={d} path={gPath(d)} color={color(i)} />
             ))}
           </svg>
-          <h1 className="heading-map">State of New York</h1>
+          <h1 className="heading-map">City of New York</h1>
       </div>     
     );
   }

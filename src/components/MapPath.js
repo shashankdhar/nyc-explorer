@@ -16,9 +16,10 @@ export default class MapPath extends React.Component {
 		this.setState({ redirect: true });
 	};
 
-	render() {
+	render( history ) {
 		const { redirect } = this.state;
-
+		console.log(history);
+		debugger;
 		if (redirect) {
 			return (
 				<Redirect
