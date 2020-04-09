@@ -9,32 +9,26 @@
 
 ## Project setup
 
+### Clone the repository
+
 ```
 git clone https://github.com/shashankdhar/react-zipexplorer.git
 ```
+
+### Install dependencies 
 
 ```
 npm install
 ```
 
-### Compiles and minifies for production
+### Run the app in development mode. Open http://localhost:3000 to view it in the browser.
+
+```
+npm start
+```
+
+### Builds the app for production to the build folder.
 
 ```
 npm run build
 ```
-
-### For environments using Node ,the easiest way to run a static would be to use "serve"!
-
-### If you dont have have serve installed, run the command below
-
-```
-npm install -g serve
-```
-
-### Starts the server and deploys the dist
-
-```
-serve -s build
-```
-
-To access the url go to http://localhost:3000 on your machine.
