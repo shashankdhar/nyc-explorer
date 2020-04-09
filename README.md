@@ -21,4 +21,4 @@ Run the command below in main directory
 
 serve -s build
 
-To access the url go to http://localhost:5000 on your machine.
+To access the url go to http://localhost:3000 on your machine.
