@@ -1,5 +1,8 @@
+This simple app can help you find details of an area (zip) in the city of New York.
 
+![](images/view1.png)
 
+![](images/view2.png)
 
 ### Steps to run the app (assuming node is installed)
 
