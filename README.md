@@ -1,10 +1,10 @@
 ## This simple app can help you find details of an area (zip) in the city of New York.
 
 
-![](images/view1.png)
+![A map of NYC showing all areas categorized by zipcode](images/view1.png)
 
 
-![](images/view2.png)
+![Details like population, weather, places to visit etc](images/view2.png)
 
 
 ## Project setup
